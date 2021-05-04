@@ -20,7 +20,7 @@ task generateAngularApp(type: NpxTask) {
 task installBarista(type: NpxTask) {
     // https://barista.dynatrace.com/
     command = 'ng'
-    args = ['add', '@dynatrace/barista-components@9.4.3']
+    args = ['add', '@dynatrace/barista-components']
 }
 
 //---------------------------
