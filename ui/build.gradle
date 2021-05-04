@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id "com.github.node-gradle.node" version "3.0.1"
+}
+
+node {
+    version = '16.0.0'
+    download = true
+    workDir = file("${rootProject.projectDir}/.gradle/nodejs")
+}
+
+//---------------------------
+//    Installation
+//---------------------------
+task generateAngularApp(type: NpxTask) {
+    command = '@angular/cli@11.2.11'
+    args = ['new', "${rootProject.name}", '--directory', './']
+}
+
+task installBarista(type: NpxTask) {
+    // https://barista.dynatrace.com/
+    command = 'ng'
+    args = ['add', '@dynatrace/barista-components@9.4.3']
+}
+
+//---------------------------
+//    Build & Run
+//---------------------------
+task buildAngularApp(type: NpxTask) {
+    dependsOn npmInstall
+    command = 'ng'
+    args = ['build', '--prod']
+    inputs.files('package.json', 'package-lock.json', 'angular.json', 'tsconfig.json', 'tsconfig.app.json')
+    inputs.dir('src')
+    inputs.dir(fileTree("node_modules").exclude(".cache"))
+    outputs.dir('dist')
+}
+
+
+//---------------------------
+//    Build jar
+//---------------------------
+jar.dependsOn 'buildAngularApp'
+
+jar {
+    from "dist/${rootProject.name}" into 'static'
+}
