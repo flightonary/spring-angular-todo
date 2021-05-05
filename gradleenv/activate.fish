@@ -32,9 +32,9 @@ set -gx VIRTUAL_ENV (realpath (dirname (status --current-filename))/../)
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 
-set BINS (find "$VIRTUAL_ENV"/.gradle/ -type d -name 'node_modules' -prune -o -type d -name bin -print | tr '\n' ' ')
+set BINS (find "$VIRTUAL_ENV/.gradle/" -type d -name 'node_modules' -prune -o -type d -name bin -print)
 set -gx PATH "$VIRTUAL_ENV" $PATH
-set -gx PATH "$BINS" $PATH
+set -gx PATH $BINS $PATH
 
 
 if test -z "$VIRTUAL_ENV_DISABLE_PROMPT"

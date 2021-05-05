@@ -32,14 +32,12 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-#set -gx VIRTUAL_ENV (realpath (dirname (status --current-filename))/../)
-
 VIRTUAL_ENV=$(cd $(dirname $0)/../ && pwd)
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
 
-BINS=$(find "$VIRTUAL_ENV"/.gradle/ -type d -name 'node_modules' -prune -o -type d -name bin -print | tr '\n' ':')
+BINS=$(find "$VIRTUAL_ENV/.gradle/" -type d -name 'node_modules' -prune -o -type d -name bin -print | tr '\n' ':')
 PATH="$VIRTUAL_ENV:$BINS:$PATH"
 export PATH
 
