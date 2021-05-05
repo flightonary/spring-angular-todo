@@ -24,12 +24,21 @@ task installBarista(type: NpxTask) {
 }
 
 //---------------------------
-//    Build & Run
+//    Development
 //---------------------------
-task buildAngularApp(type: NpxTask) {
+task serveStandalone(type: NpxTask) {
+  dependsOn npmInstall
+  command = 'ng'
+  args = ['serve', '--open']
+}
+
+//---------------------------
+//    Build
+//---------------------------
+task buildForProduction(type: NpxTask) {
     dependsOn npmInstall
     command = 'ng'
-    args = ['build', '--prod']
+    args = ['build', '-c', 'production']
     inputs.files('package.json', 'package-lock.json', 'angular.json', 'tsconfig.json', 'tsconfig.app.json')
     inputs.dir('src')
     inputs.dir(fileTree("node_modules").exclude(".cache"))
@@ -40,7 +49,7 @@ task buildAngularApp(type: NpxTask) {
 //---------------------------
 //    Build jar
 //---------------------------
-jar.dependsOn 'buildAngularApp'
+jar.dependsOn 'buildForProduction'
 
 jar {
     from "dist/${rootProject.name}" into 'static'
