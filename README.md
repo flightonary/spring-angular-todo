@@ -5,18 +5,18 @@ with;
 - Spring Web
 - Spring Security
 
-# Virtual Env
+# Virtual Environment
 bash, zsh
 ```
-. venv/activate
+. gradleenv/activate
 ```
 
 fish
 ```
-. venv/activate.fish
+. gradleenv/activate.fish
 ```
 
-# Ng
+# Angular
 ```
 npx ng serve 
 ```
