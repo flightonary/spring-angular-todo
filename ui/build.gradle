@@ -18,13 +18,6 @@ task newAngularApp(type: NpxTask) {
     args = ['new', "${rootProject.name}", '--directory=./', '--style=scss', '--routing=true']
 }
 
-task installBarista(type: NpxTask) {
-    // https://barista.dynatrace.com/
-    dependsOn newAngularApp
-    command = 'ng'
-    args = ['add', '@dynatrace/barista-components']
-}
-
 //---------------------------
 //    Development
 //---------------------------
