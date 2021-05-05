@@ -5,9 +5,25 @@ with;
 - Spring Web
 - Spring Security
 
+# Virtual Env
+bash, zsh
+```
+. venv/activate
+```
+
+fish
+```
+. venv/activate.fish
+```
+
+# Ng
+```
+npx ng serve 
+```
+
 # Build jar
 ```
-./gradlew bootJar
+gradlew bootJar
 ```
 
 # Run jar
