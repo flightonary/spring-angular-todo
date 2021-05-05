@@ -12,13 +12,15 @@ node {
 //---------------------------
 //    Installation
 //---------------------------
-task generateAngularApp(type: NpxTask) {
+task newAngularApp(type: NpxTask) {
+    dependsOn nodeSetup
     command = '@angular/cli@11.2.11'
-    args = ['new', "${rootProject.name}", '--directory', './']
+    args = ['new', "${rootProject.name}", '--directory=./', '--style=scss', '--routing=true']
 }
 
 task installBarista(type: NpxTask) {
     // https://barista.dynatrace.com/
+    dependsOn newAngularApp
     command = 'ng'
     args = ['add', '@dynatrace/barista-components']
 }
