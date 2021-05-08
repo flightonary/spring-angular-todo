@@ -8,9 +8,13 @@ import { DtTopBarNavigationModule} from "@dynatrace/barista-components/top-bar-n
 import { DtMenuModule } from "@dynatrace/barista-components/menu";
 import { DtDrawerModule } from "@dynatrace/barista-components/drawer";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TopologyComponent } from './topology/topology.component';
+import { BacktraceComponent } from './backtrace/backtrace.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TopologyComponent,
+    BacktraceComponent
   ],
   imports: [
     BrowserModule,

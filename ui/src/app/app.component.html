@@ -1,6 +1,6 @@
 <dt-top-bar-navigation aria-label="Main">
   <dt-top-bar-navigation-item align="start">
-    <a routerLink="" dtTopBarAction>
+    <a (click)="menu.toggle()" dtTopBarAction>
       <dt-icon name="menu-hamburger"></dt-icon>
     </a>
   </dt-top-bar-navigation-item>
@@ -15,29 +15,18 @@
   </dt-top-bar-navigation-item>
 </dt-top-bar-navigation>
 
-<dt-drawer-container>
-  <dt-drawer mode="side" position="start" class="dt-menu-drawer" opened>
+<dt-drawer-container class="dt-main-drawer-container">
+  <dt-drawer mode="side" position="start" class="dt-menu-drawer" #menu opened>
     <dt-menu aria-label="Menu inside Drawer Example">
-      <dt-menu-group label="Dashboards & reports">
-        <a routerLink="/dashboards" dtMenuItem>Dashboards</a>
-        <a routerLink="/customchart" dtMenuItem>Create custom chart</a>
-        <a routerLink="/reports" dtMenuItem>Reports</a>
+      <dt-menu-group label="Cross Environment Analysis">
+        <a routerLink="/topology" dtMenuItem>Topology</a>
+        <a routerLink="/backtrace" dtMenuItem>Backtrace</a>
       </dt-menu-group>
-      <dt-menu-group label="Analyze">
-        <a routerLink="/problems" dtMenuItem>Problems</a>
-        <a routerLink="/usersessions" dtMenuItem>User sessions</a>
-        <a routerLink="/smartscape" dtMenuItem>Smartscape topology</a>
-        <a routerLink="/diagnostic" dtMenuItem>Diagnostic tools</a>
+      <dt-menu-group label="Account">
+        <a routerLink="/profile" dtMenuItem>Profile</a>
+        <a routerLink="/settings" dtMenuItem>Settings</a>
       </dt-menu-group>
-      <a routerLink="/help" dtMenuItem>Item outside a group</a>
     </dt-menu>
   </dt-drawer>
-  <h1>メインコンテンツ</h1>
-  <p>
-    祇園精舎の鐘の声、諸行無常の響きあり。沙羅双樹の花の色、盛者必衰の理をあらはす。
-    おごれる人も久しからず、ただ春の夜の夢のごとし。たけき者も遂にはほろびぬ、ひとへに風の前の塵に同じ。<br>
-    遠くの異朝をとぶらへば、秦の趙高、漢の王莽、梁の朱忌、唐の禄山、これらは皆、旧主先皇の政にも従はず、
-    楽しみを極め、諫めをも思ひ入れず、天下の乱れんことを悟らずして、民間の愁ふるところを知らざつしかば、
-    久しからずして、亡じにし者どもなり。
-  </p>
+  <router-outlet></router-outlet>
 </dt-drawer-container>

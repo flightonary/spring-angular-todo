@@ -1,11 +1,15 @@
 /** menu-within-drawer-example.scss */
+.dt-main-drawer-container {
+  height: 100%;
+}
+
 .dt-menu-drawer {
   padding: 0;
 }
 
 .dt-menu {
+  height: 100%;
   width:  240px;
-  height: 900px;
 }
 
 .dt-menu-item {
