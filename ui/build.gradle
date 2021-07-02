@@ -10,7 +10,7 @@ node {
 }
 
 //---------------------------
-//    Installation
+//    Create New Angular App
 //---------------------------
 task newAngularApp(type: NpxTask) {
     dependsOn nodeSetup
