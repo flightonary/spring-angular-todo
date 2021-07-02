@@ -14,7 +14,7 @@ node {
 //---------------------------
 task newAngularApp(type: NpxTask) {
     dependsOn nodeSetup
-    command = '@angular/cli@11.2.11'
+    command = '@angular/cli'
     args = ['new', "${rootProject.name}", '--directory=./', '--style=scss', '--routing=true']
 }
 
